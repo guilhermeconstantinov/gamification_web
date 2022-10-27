@@ -15,6 +15,10 @@ export default {
       success:
         'text-white bg-green-500 border border-transparent rounded shadow-sm hover:bg-green-600',
       link: 'text-blue-500 underline hover:text-blue-600',
+      principal:
+        'text-white bg-principal border border-transparent shadow-sm rounded hover:bg-principal',
+      'principal-rounded':
+        'px-10 font-medium text-white bg-principal rounded-full border border-transparent shadow-sm hover:bg-principal',
     },
   },
 }
