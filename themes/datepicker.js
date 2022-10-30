@@ -1,8 +1,11 @@
 import { TDatepicker } from 'vue-tailwind/dist/components'
-
+import Portuguese from 'vue-tailwind/dist/l10n/pt'
 export default {
   component: TDatepicker,
   props: {
+    locale: Portuguese,
+    userFormat: 'd/m/Y',
+    lang: 'pt',
     fixedClasses: {
       navigator: 'flex',
       navigatorViewButton: 'flex items-center',
@@ -98,7 +101,7 @@ export default {
     },
     variants: {
       danger: {
-        input: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
+        input: 'border-red-300 text-red-900',
         clearButton: 'hover:bg-red-200 text-red-500',
       },
     },

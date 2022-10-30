@@ -7,7 +7,7 @@ export default {
       wrapper: '',
       label: 'block',
       body: '',
-      feedback: ' text-sm text-sm',
+      feedback: ' text-sm text-sm mt-1',
       description: 'text-gray-400 text-sm',
     },
     classes: {
@@ -20,7 +20,7 @@ export default {
     variants: {
       danger: {
         label: 'text-red-500',
-        feedback: 'text-red-500',
+        feedback: 'text-red-400',
       },
       success: {
         label: 'text-green-500',

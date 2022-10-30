@@ -1,7 +1,8 @@
 <template>
   <div class="py-8">
     <Welcome v-if="step == 1" />
-    <Checkin v-if="step == 2" />
+    <CheckinOne v-if="step == 2" />
+    <CheckinTwo v-if="step == 3" />
     <div>
       <v-button variant="principal-rounded" class="mx-auto mt-12" @click="next">
         Avançar
@@ -12,9 +13,10 @@
 
 <script>
 import Welcome from '@/components/Welcome'
-import Checkin from '@/components/Checkin'
+import CheckinOne from '@/components/CheckinOne'
+import CheckinTwo from '@/components/CheckinTwo'
 export default {
-  components: { Welcome, Checkin },
+  components: { Welcome, CheckinOne, CheckinTwo },
   data() {
     return {
       step: 1,

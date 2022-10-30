@@ -4,4 +4,10 @@ export default ($http) => ({
 
     return data
   },
+
+  async register(options) {
+    const { data } = await $http.post('register', options)
+
+    return data
+  },
 })

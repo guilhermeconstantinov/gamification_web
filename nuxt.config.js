@@ -5,6 +5,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  router: {
+    middleware: ['auth'],
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'gamification-web',
@@ -24,7 +28,12 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/services.js', '@/plugins/vue-tailwind.js'],
+  plugins: [
+    '@/plugins/services.js',
+    '@/plugins/vue-tailwind.js',
+    '@/plugins/vuelidate.js',
+    '@/plugins/vue-the-mask.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -36,10 +45,47 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.NUXT_ENV_API_URL
+      ? process.env.NUXT_ENV_API_URL
+      : 'http://localhost:8000',
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  auth: {
+    strategies: {
+      local: {
+        scheme: '@/modules/nuxtAuthSchema',
+        token: {
+          property: 'access_token',
+        },
+        user: {
+          property: '',
+        },
+        endpoints: {
+          login: {
+            url: 'oauth/token',
+            method: 'post',
+          },
+          user: {
+            url: 'user',
+            method: 'get',
+          },
+        },
+        client_id: process.env.NUXT_ENV_API_CLIENT_ID,
+        client_secret: process.env.NUXT_ENV_API_CLIENT_SECRET,
+        redirect: {
+          login: '/login',
+          logout: '/login',
+          home: '/register',
+        },
+      },
+    },
+  },
 }
