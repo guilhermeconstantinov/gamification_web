@@ -49,6 +49,15 @@
         />
       </div>
     </div>
+    <div>
+      <v-button
+        variant="principal-rounded"
+        class="mx-auto mt-12"
+        @click="$emit('next')"
+      >
+        Avançar
+      </v-button>
+    </div>
   </div>
 </template>
 
@@ -77,5 +86,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

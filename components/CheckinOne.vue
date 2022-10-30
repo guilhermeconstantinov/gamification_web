@@ -8,6 +8,15 @@
         A primeira etapa será o processo de check-in na plataforma, para isso
         enviaremos um QR Code para seu whatsapp
       </p>
+      <div>
+        <v-button
+          variant="principal-rounded"
+          class="mx-auto mt-12"
+          @click="$emit('next')"
+        >
+          Avançar
+        </v-button>
+      </div>
     </div>
   </div>
 </template>
@@ -16,5 +25,4 @@
 export default {}
 </script>
 
-<style>
-</style>
+<style></style>
