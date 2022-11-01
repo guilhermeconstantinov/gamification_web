@@ -4,7 +4,7 @@
     <CheckinOne v-if="step == 2" @next="next" />
     <CheckinTwo v-if="step == 3" @next="next" />
     <Simulation v-if="step == 4" @next="next" @curso="cursos = $event" />
-    {{ cursos }}
+    <SimulationResult v-if="step == 5" :result="cursos" @next="next" />
   </div>
 </template>
 
@@ -13,13 +13,14 @@ import Welcome from '@/components/Welcome'
 import CheckinOne from '@/components/CheckinOne'
 import CheckinTwo from '@/components/CheckinTwo'
 import Simulation from '@/components/Simulation'
+import SimulationResult from '@/components/SimulationResult'
 
 export default {
-  components: { Welcome, CheckinOne, CheckinTwo, Simulation },
+  components: { Welcome, CheckinOne, CheckinTwo, Simulation, SimulationResult },
   data() {
     return {
       cursos: null,
-      step: 1,
+      step: 4,
     }
   },
   methods: {
