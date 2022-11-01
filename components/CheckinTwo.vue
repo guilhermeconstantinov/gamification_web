@@ -48,15 +48,17 @@
           @focus="checkInitialFocus"
         />
       </div>
-    </div>
-    <div>
-      <v-button
-        variant="principal-rounded"
-        class="mx-auto mt-12"
-        @click="$emit('next')"
-      >
-        Avançar
-      </v-button>
+      <div>
+        <v-button
+          variant="principal-rounded"
+          class="mx-auto mt-12"
+          :disabled="loading"
+          @click="submit"
+        >
+          <Icon v-if="loading" icon="loading" class="text-white" />
+          <span v-else>Avançar</span>
+        </v-button>
+      </div>
     </div>
   </div>
 </template>
@@ -65,6 +67,7 @@
 export default {
   data() {
     return {
+      loading: false,
       code: [],
     }
   },
@@ -81,6 +84,18 @@ export default {
 
       this.code[index] = value
       this.$refs['code' + (index + 1)].$el.focus()
+    },
+    async submit() {
+      this.loading = true
+      try {
+        const code = { code: this.code.join('') }
+        await this.$services.user.readValidationCode(code)
+        this.$emit('next')
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.loading = false
+      }
     },
   },
 }

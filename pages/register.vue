@@ -157,6 +157,11 @@ export default {
       if (this.$v.form.password.$error && !this.$v.form.password.required) {
         return 'Campo obrigátorio*'
       }
+
+      if (this.$v.form.password.$error && !this.$v.form.password.minLength) {
+        return 'Precisa de pelo menos 6 dígitos'
+      }
+
       return ''
     },
     feedbackConfirmPassword() {
@@ -188,7 +193,7 @@ export default {
         required,
         validateDate,
       },
-      password: { required },
+      password: { required, minLength: minLength(6) },
       confirmPassword: {
         required,
         sameAsPassword: sameAs('password'),

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full">
     <Icon icon="welcome" class="h-72 mx-auto px-4" />
 
     <div class="text-center mt-5">

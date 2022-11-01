@@ -12,9 +12,10 @@
         <v-button
           variant="principal-rounded"
           class="mx-auto mt-12"
-          @click="$emit('next')"
+          @click="submit"
         >
-          Avançar
+          <Icon v-if="loading" icon="loading" class="text-white" />
+          <span v-else>Avançar</span>
         </v-button>
       </div>
     </div>
@@ -22,7 +23,26 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      loading: false,
+    }
+  },
+  methods: {
+    async submit() {
+      this.loading = true
+      try {
+        await this.$services.user.validationCode()
+        this.$emit('next')
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.loading = false
+      }
+    },
+  },
+}
 </script>
 
 <style></style>

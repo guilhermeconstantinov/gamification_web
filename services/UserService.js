@@ -10,4 +10,28 @@ export default ($http) => ({
 
     return data
   },
+
+  async validationCode(options) {
+    const { data } = await $http.post('validation-code', options)
+
+    return data
+  },
+
+  async readValidationCode(options) {
+    const { data } = await $http.post('read-validation-code', options)
+
+    return data
+  },
+
+  async simulation(options) {
+    const { data } = await $http.post('simulation', options)
+
+    return data
+  },
+
+  async generateNumber(options) {
+    const { data } = await $http.post('generate-number', options)
+
+    return data
+  },
 })
