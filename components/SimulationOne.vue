@@ -1,51 +1,76 @@
 <template>
   <div>
-    <Icon icon="advantage" class="h-72 mx-auto px-4" />
+    <div class="py-8">
+      <Icon icon="advantage" class="h-72 mx-auto px-4" />
 
-    <div class="text-center mt-5">
-      <h1 class="text-3xl font-bold text-gray-800 mb-5">Simulação</h1>
-      <p class="text-lg px-6 font-medium text-gray-700 leading-snug">
-        A primeira etapa será o processo de check-in na plataforma, para isso
-        enviaremos um QR Code para seu whatsapp
-      </p>
-      <div class="px-6 mt-5 space-y-5">
-        <v-input-group :feedback="curso1Feedback">
-          <v-select
-            v-model="form.selectCurso1"
-            :options="options"
-            placeholder="Selecione uma opção"
-            value-attribute="id"
-            text-attribute="text"
-          />
-        </v-input-group>
-        <v-input-group :feedback="curso2Feedback">
-          <v-select
-            v-model="form.selectCurso2"
-            :options="options"
-            placeholder="Selecione uma opção"
-            value-attribute="id"
-            text-attribute="text"
-          />
-        </v-input-group>
-        <v-input-group :feedback="condicaoFeedback">
-          <v-select
-            v-model="form.selectCondicao"
-            :options="options2"
-            placeholder="Selecione uma opção"
-            value-attribute="cond"
-            text-attribute="text"
-          />
-        </v-input-group>
+      <div class="mt-5">
+        <h1 class="text-3xl font-bold text-gray-800 mb-5 text-center">
+          Simulação
+        </h1>
+        <p
+          class="
+            text-lg
+            px-6
+            font-medium
+            text-gray-700
+            leading-snug
+            text-center
+          "
+        >
+          A primeira etapa será o processo de check-in na plataforma, para isso
+          enviaremos um QR Code para seu whatsapp
+        </p>
+        <div class="px-6 mt-5 space-y-5">
+          <v-input-group
+            :feedback="curso1Feedback"
+            :variant="{ danger: curso1Feedback }"
+          >
+            <v-select
+              v-model="form.selectCurso1"
+              :options="options"
+              placeholder="Selecione uma opção"
+              :variant="{ danger: curso1Feedback }"
+              value-attribute="id"
+              text-attribute="text"
+            />
+          </v-input-group>
+          <v-input-group
+            :feedback="curso2Feedback"
+            :variant="{ danger: curso2Feedback }"
+          >
+            <v-select
+              v-model="form.selectCurso2"
+              :options="options"
+              placeholder="Selecione uma opção"
+              :variant="{ danger: curso2Feedback }"
+              value-attribute="id"
+              text-attribute="text"
+            />
+          </v-input-group>
+          <v-input-group
+            :feedback="condicaoFeedback"
+            :variant="{ danger: condicaoFeedback }"
+          >
+            <v-select
+              v-model="form.selectCondicao"
+              :options="options2"
+              placeholder="Selecione uma opção"
+              :variant="{ danger: condicaoFeedback }"
+              value-attribute="cond"
+              text-attribute="text"
+            />
+          </v-input-group>
+        </div>
       </div>
-    </div>
-    <div>
-      <v-button
-        variant="principal-rounded"
-        class="mx-auto mt-12"
-        @click="submit"
-      >
-        Avançar
-      </v-button>
+      <div>
+        <v-button
+          variant="principal-rounded"
+          class="mx-auto mt-12"
+          @click="submit"
+        >
+          Avançar
+        </v-button>
+      </div>
     </div>
   </div>
 </template>
@@ -88,7 +113,7 @@ export default {
       options2: [
         { cond: 0, text: 'Com Bolsa de 50% + Financiamento = 25%' },
         { cond: 1, text: 'Com Bolsa 50%' },
-        { cond: 2, text: 'Sem Bolsa + Financiamento' }
+        { cond: 2, text: 'Sem Bolsa + Financiamento' },
       ],
     }
   },
@@ -146,7 +171,7 @@ export default {
         return
       }
       this.$emit('curso', form)
-      this.$emit('next')
+      this.$emit('next', 3.5)
     },
   },
 }

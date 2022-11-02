@@ -39,8 +39,8 @@ export default {
   },
   computed: {
     qrcode() {
-      if (this.$auth?.user?.access_codes[0]?.code) {
-        return this.$auth?.user?.access_codes[0]?.code
+      if (this.$auth?.user?.access_codes[1]?.code) {
+        return this.$auth?.user?.access_codes[1]?.code
       }
       return ''
     },
@@ -54,8 +54,8 @@ export default {
       try {
         await this.$auth.fetchUser()
 
-        if (this.$auth.user.status === StatusType.checkin) {
-          this.$emit('next', 3)
+        if (this.$auth.user.status === StatusType.simulation) {
+          this.$emit('next', 5)
         }
       } catch (e) {
         console.log(e)

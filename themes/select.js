@@ -8,7 +8,7 @@ export default {
     classes:
       'text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 ',
     variants: {
-      danger: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
+      danger: 'border-red-300 placeholder-red-200 text-red-900',
       success:
         'border-green-300 bg-green-50 placeholder-gray-400 text-green-900',
     },

@@ -1,15 +1,7 @@
 <template>
   <div>
     <div class="text-center mt-10 py-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-5">Retirar brinde</h1>
-
-      <div v-if="qrcode" class="flex justify-center my-10">
-        <QrCode :text="qrcode" :size="200"></QrCode>
-      </div>
-
-      <div v-else class="flex justify-center my-16">
-        <Icon icon="loading" class="w-16 text-gray-600" />
-      </div>
+      <h1 class="text-3xl font-bold text-gray-800 mb-5">Sorteio de prémio</h1>
 
       <p class="text-lg px-6 font-medium text-gray-700 leading-snug mb-6">
         Apresente esse QR Code na recepção do evento para que você consiga
@@ -39,8 +31,8 @@ export default {
   },
   computed: {
     qrcode() {
-      if (this.$auth?.user?.access_codes[0]?.code) {
-        return this.$auth?.user?.access_codes[0]?.code
+      if (this.$auth?.user?.access_codes[1]?.code) {
+        return this.$auth?.user?.access_codes[1]?.code
       }
       return ''
     },
@@ -54,8 +46,8 @@ export default {
       try {
         await this.$auth.fetchUser()
 
-        if (this.$auth.user.status === StatusType.checkin) {
-          this.$emit('next', 3)
+        if (this.$auth.user.status === StatusType.simulation) {
+          this.$emit('next', 5)
         }
       } catch (e) {
         console.log(e)

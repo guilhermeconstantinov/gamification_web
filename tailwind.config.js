@@ -13,10 +13,15 @@ module.exports = {
       colors: {
         principal: '#557FEB',
       },
+      minWidth: {
+        6: '1.5rem',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      opacity: ['disabled'],
+    },
   },
   plugins: [],
 }
