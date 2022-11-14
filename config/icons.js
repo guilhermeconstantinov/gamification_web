@@ -6,6 +6,7 @@ import Welcome from '@/assets/storyset/welcome.svg?inline'
 import Checkin from '@/assets/storyset/checkin.svg?inline'
 import Checkin2 from '@/assets/storyset/checkin2.svg?inline'
 import Advantage from '@/assets/storyset/advantage.svg?inline'
+import GiftNumber from '@/assets/storyset/GiftNumber.svg?inline'
 
 export default {
   check: Check,
@@ -16,4 +17,5 @@ export default {
   loading: Loading,
   loading2: Loading2,
   advantage: Advantage,
+  giftnumber: GiftNumber,
 }

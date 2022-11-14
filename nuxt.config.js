@@ -33,6 +33,7 @@ export default {
     '@/plugins/vue-tailwind.js',
     '@/plugins/vuelidate.js',
     '@/plugins/vue-the-mask.js',
+    '@/plugins/qrcode.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

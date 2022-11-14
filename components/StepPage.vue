@@ -1,10 +1,22 @@
 <template>
-  <div class="py-8">
-    <Welcome v-if="step == 1" @next="next" />
-    <CheckinOne v-if="step == 2" @next="next" />
-    <CheckinTwo v-if="step == 3" @next="next" />
-    <Simulation v-if="step == 4" @next="next" @curso="cursos = $event" />
-    <SimulationResult v-if="step == 5" :result="cursos" @next="next" />
+  <div class="rounded-lg sm:border w-full sm:w-3/4 lg:w-2/4 mt-14">
+    <Welcome v-if="step == 0" @next="next" />
+    <CheckinOne v-if="step == 0.5" @next="next" />
+    <CheckinTwo v-if="step == 1" @next="next" />
+    <CheckinThree v-if="step == 2" @next="next" />
+    <SimulationOne v-if="step == 3" @next="next" @curso="cursos = $event" />
+    <SimulationTwo
+      v-if="step == 3.5"
+      :result="cursos"
+      @next="next"
+      @back="back"
+    />
+
+    <SimulationThree v-if="step == 4" @next="next" />
+
+    <Raffle v-if="step == 5" @next="next" />
+    <RaffleNumber v-if="step == 6" @next="next" />
+    <RaffleWon v-if="step == 7" @next="next" />
   </div>
 </template>
 
@@ -12,20 +24,44 @@
 import Welcome from '@/components/Welcome'
 import CheckinOne from '@/components/CheckinOne'
 import CheckinTwo from '@/components/CheckinTwo'
-import Simulation from '@/components/Simulation'
-import SimulationResult from '@/components/SimulationResult'
+import CheckinThree from '@/components/CheckinThree'
+import SimulationOne from '@/components/SimulationOne'
+import SimulationTwo from '@/components/SimulationTwo'
+import SimulationThree from '@/components/SimulationThree'
+import Raffle from '@/components/Raffle'
+import RaffleNumber from '@/components/RaffleNumber'
+import RaffleWon from '@/components/RaffleWon'
 
 export default {
-  components: { Welcome, CheckinOne, CheckinTwo, Simulation, SimulationResult },
+  components: {
+    Welcome,
+    CheckinOne,
+    CheckinTwo,
+    CheckinThree,
+    SimulationOne,
+    SimulationTwo,
+    SimulationThree,
+    Raffle,
+    RaffleNumber,
+    RaffleWon,
+  },
   data() {
     return {
       cursos: null,
-      step: 4,
+      step: this.$auth.user.status,
     }
   },
+  computed: {
+    userStatus() {
+      return this.$auth.user.status
+    },
+  },
   methods: {
-    next() {
-      this.step++
+    next(step) {
+      this.step = step
+    },
+    back() {
+      this.step--
     },
   },
 }
