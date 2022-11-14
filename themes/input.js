@@ -8,7 +8,7 @@ export default {
     classes:
       'w-full text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500',
     variants: {
-      danger: 'w-full border-red-500  text-red-900',
+      danger: 'w-full border-red-500 text-red-900',
       code: 'text-center w-10 text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500',
       success:
         'w-full border-green-300 bg-green-50 placeholder-gray-400 text-green-900',

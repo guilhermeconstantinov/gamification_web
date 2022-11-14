@@ -29,7 +29,7 @@
       </v-input-group>
 
       <v-button variant="principal" class="col-span-12" :disabled="loading">
-        <Icon v-if="loading" icon="loading" class="text-white" />
+        <Icon v-if="loading" icon="loading" class="text-white w-5" />
         <span v-else>Entrar</span>
       </v-button>
 

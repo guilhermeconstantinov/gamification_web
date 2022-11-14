@@ -14,7 +14,9 @@
 
     <SimulationThree v-if="step == 4" @next="next" />
 
-    <Raffle @next="next" />
+    <Raffle v-if="step == 5" @next="next" />
+    <RaffleNumber v-if="step == 6" @next="next" />
+    <RaffleWon v-if="step == 7" @next="next" />
   </div>
 </template>
 
@@ -27,6 +29,8 @@ import SimulationOne from '@/components/SimulationOne'
 import SimulationTwo from '@/components/SimulationTwo'
 import SimulationThree from '@/components/SimulationThree'
 import Raffle from '@/components/Raffle'
+import RaffleNumber from '@/components/RaffleNumber'
+import RaffleWon from '@/components/RaffleWon'
 
 export default {
   components: {
@@ -38,6 +42,8 @@ export default {
     SimulationTwo,
     SimulationThree,
     Raffle,
+    RaffleNumber,
+    RaffleWon,
   },
   data() {
     return {

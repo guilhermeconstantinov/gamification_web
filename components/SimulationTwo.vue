@@ -77,8 +77,12 @@ export default {
     result: {
       type: Object,
       default: null,
-      loading: false,
     },
+  },
+  data() {
+    return {
+      loading: false,
+    }
   },
   computed: {
     valor1() {
@@ -102,7 +106,12 @@ export default {
       this.loading = true
 
       try {
-        await this.$services.user.simulation()
+        const body = {
+          course1: this.result?.curso1?.text,
+          course2: this.result?.curso2?.text,
+        }
+
+        await this.$services.user.simulation(body)
         this.$emit('next', 4)
       } catch (e) {
         console.log(e)

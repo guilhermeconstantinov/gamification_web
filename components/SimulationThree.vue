@@ -13,7 +13,7 @@
 
       <p class="text-lg px-6 font-medium text-gray-700 leading-snug mb-6">
         Apresente esse QR Code na recepção do evento para que você consiga
-        avançar e ganhar mais prémios
+        avançar e ganhar mais prêmios
       </p>
 
       <v-button

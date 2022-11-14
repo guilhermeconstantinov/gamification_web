@@ -15,6 +15,7 @@ export default {
       success:
         'px-4 text-white bg-green-500 border border-transparent rounded shadow-sm hover:bg-green-600',
       link: 'text-blue-500 underline hover:text-blue-600',
+      blank: '',
       principal:
         'px-4 text-white bg-principal border border-transparent shadow-sm rounded hover:bg-principal flex justify-center',
       'principal-rounded':
