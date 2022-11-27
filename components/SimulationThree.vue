@@ -11,7 +11,10 @@
         <Icon icon="loading" class="w-16 text-gray-600" />
       </div>
 
-      <p class="text-lg px-6 font-medium text-gray-700 leading-snug mb-6">
+      <p
+        v-if="qrcode"
+        class="text-lg px-6 font-medium text-gray-700 leading-snug mb-6"
+      >
         Apresente esse QR Code no curso<br />
         <span class="uppercase font-bold text-yellow-500">
           {{ $auth?.user?.course1 }}

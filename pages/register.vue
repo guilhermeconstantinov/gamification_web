@@ -378,6 +378,9 @@ export default {
 
       await this.register()
     },
+    sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms))
+    },
     back() {
       this.step--
       if (this.step === 0) {
