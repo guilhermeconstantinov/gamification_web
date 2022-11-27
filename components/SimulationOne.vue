@@ -17,8 +17,8 @@
             text-center
           "
         >
-          A primeira etapa será o processo de check-in na plataforma, para isso
-          enviaremos um QR Code para seu whatsapp
+          A segunda etapa será o processo de simulação na plataforma, após a
+          conclusão será possivel retirar um novo brinde
         </p>
         <div class="px-6 mt-5 space-y-5">
           <v-input-group
