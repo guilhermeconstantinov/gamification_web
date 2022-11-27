@@ -133,6 +133,7 @@
               <v-radio
                 v-model="form2.schoolYear"
                 wrapped
+                :disabled="!form2.highSchool"
                 label="Primeiro ano"
                 :value="1"
                 name="schoolYear"
@@ -141,6 +142,7 @@
               <v-radio
                 v-model="form2.schoolYear"
                 wrapped
+                :disabled="!form2.highSchool"
                 label="Segundo ano"
                 :value="2"
                 name="schoolYear"
@@ -149,6 +151,7 @@
               <v-radio
                 v-model="form2.schoolYear"
                 wrapped
+                :disabled="!form2.highSchool"
                 label="Terceiro ano"
                 :value="3"
                 name="schoolYear"
@@ -157,7 +160,6 @@
               <v-radio
                 v-model="form2.schoolYear"
                 wrapped
-                :disabled="!form2.highSchool"
                 label="Não estou no ensino médio"
                 :value="4"
                 name="schoolYear"
